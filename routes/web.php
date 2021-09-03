@@ -20,5 +20,4 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
-Route::resource('clientes', ClienteController::class);
+

@@ -19,6 +19,8 @@ class ClienteController extends Controller
         return Cliente::search($request->buscar);
     }
 
+ 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,6 +49,11 @@ class ClienteController extends Controller
     public function show($id)
     {
         //
+        $cliente = Cliente::find($id);
+        if (is_null($cliente)) {
+            return response()->json(['Mensaje' => 'Cliente no Encontrada'], 404);
+        }
+        return response()->json(Cliente::find($id), 200);
     }
 
     /**
